@@ -10,7 +10,7 @@ This repo is the official implementation of ["Contrastive Learning Rivals Masked
 Initial commits:
 
 1. Distilled and fine-tuned models on ImageNet-1K (`Swin Base`, and `ViT Base`) are provided.
-2. The supported code for ImageNet-1K distillation and fine-tuneing is provided.
+2. The supported code for ImageNet-1K distillation and fine-tuning is provided.
 
 ## Introduction
 
@@ -24,17 +24,17 @@ Initial commits:
 
 ### Swin Transformer
 
-**ImageNet-1K Pre-trained and Fine-tuned Models**
+**ImageNet-1K Distilled and Fine-tuned Models**
 
-| name | pre-train epochs | teacher model | image resolution | acc@1 | pre-trained model | fine-tuned model |
+| name | distillation epochs | teacher model | image resolution | acc@1 | distilled model | fine-tuned model |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Swin-Base | 300 | [EsViT-Base](https://github.com/microsoft/esvit) | 224x224 | 85.1 | [google](https://drive.google.com/file/d/11_GQUHgcrUO8PMzl73eJmLSa7f3c5dZY/view?usp=sharing)/[config](configs/pretrain/fd_pretrain__esvit_swin_base__img224__300ep.yaml) | [google](https://drive.google.com/file/d/1criliGcjpEJxqlsYRGBERBAMYrFYFW--/view?usp=sharing)/[config](configs/finetune/fd_finetune__esvit_swin_base__img224__300ep.yaml) |
 
 ### Vision Transformer
 
-**ImageNet-1K Pre-trained and Fine-tuned Models**
+**ImageNet-1K Distilled and Fine-tuned Models**
 
-| name | pre-train epochs | teacher model | image resolution | acc@1 | pre-trained model | fine-tuned model |
+| name | distillation epochs | teacher model | image resolution | acc@1 | distilled model | fine-tuned model |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | ViT-Base | 300 | [CLIP-Base](https://github.com/openai/CLIP) | 224x224 | 84.9 | [google](https://drive.google.com/file/d/1XFOZ6rJkv5X08Bu5d04_Xy3iJOj6SLc7/view?usp=sharing)/[config](configs/pretrain/fd_pretrain__clip_vit_base__img224__300ep.yaml) | [google](https://drive.google.com/file/d/1mP_JESmcdFeIkpB4aYyFzALtkydy_9qN/view?usp=sharing)/[config](configs/finetune/fd_finetune__clip_vit_base__img224__300ep.yaml) |
 | ViT-Base | 300 | [DINO-Base](https://github.com/facebookresearch/dino) | 224x224 | 83.8 | [google](https://drive.google.com/file/d/1fwBINMxpv5zFOI7Ye6l9msI8GzocpA3z/view?usp=sharing)/[config](configs/pretrain/fd_pretrain__dino_vit_base__img224__300ep.yaml) | [google](https://drive.google.com/file/d/1Mn_GgepfZXOe7W0UqEQMFo5MjJpMwM_i/view?usp=sharing)/[config](configs/finetune/fd_finetune__dino_vit_base__img224__300ep.yaml) |
@@ -77,7 +77,7 @@ pip install -r requirements.txt
 ```
 
 ### Feature-Distillation
-To distillation models, run:
+To distill models, run:
 ```bash
 python -m torch.distributed.launch --nproc_per_node <num-of-gpus-to-use> main_fd.py \ 
 --cfg <config-file> --data-path <imagenet-path>/train [--batch-size <batch-size-per-gpu> --output <output-directory> --tag <job-tag>]
@@ -91,7 +91,7 @@ python -m torch.distributed.launch --nproc_per_node=16 main_fd.py --cfg configs/
 If you want to save gpu memory consumption, add `--use-checkpoint`.
 
 ### Fine-tuning distilled models
-To fine-tune models distilled, run:
+To fine-tune distilled models, run:
 ```bash
 python -m torch.distributed.launch --nproc_per_node <num-of-gpus-to-use> main_finetune.py \ 
 --cfg <config-file> --data-path <imagenet-path> --pretrained <pretrained-ckpt> [--batch-size <batch-size-per-gpu> --output <output-directory> --tag <job-tag>]
