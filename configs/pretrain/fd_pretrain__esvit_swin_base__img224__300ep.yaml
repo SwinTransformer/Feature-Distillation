@@ -1,0 +1,28 @@
+MODEL:
+  TYPE: swin_v2
+  NAME: fd_pretrain
+  DROP_PATH_RATE: 0.3
+  SWIN:
+    EMBED_DIM: 128
+    DEPTHS: [ 2, 2, 18, 2 ]
+    NUM_HEADS: [ 4, 8, 16, 32 ]
+    WINDOW_SIZE: 14
+DATA:
+  IMG_SIZE: 224
+  BATCH_SIZE: 128
+AUG:
+  MIN_SCALE: 0.08
+TRAIN:
+  EPOCHS: 300
+  WARMUP_EPOCHS: 10
+  BASE_LR: 2e-4
+  WARMUP_LR: 1e-6
+  MIN_LR: 1e-5
+  WEIGHT_DECAY: 0.05
+  CLIP_GRAD: 3.0
+DEV:
+  PRED_FEAT: ESVIT
+  PRED_FEAT_AFTERNORM: True
+PRINT_FREQ: 100
+SAVE_FREQ: 5
+TAG: fd_pretrain__esvit_swin_base__img224__300ep

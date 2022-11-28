@@ -1,0 +1,27 @@
+MODEL:
+  TYPE: vit
+  NAME: fd_finetune
+  DROP_PATH_RATE: 0.2
+  VIT:
+    EMBED_DIM: 768
+    DEPTH: 12
+    NUM_HEADS: 12
+    USE_APE: False
+    USE_RPB: True
+    USE_SHARED_RPB: False
+    USE_MEAN_POOLING: True
+    WITH_CLS_TOKEN: True
+DATA:
+  IMG_SIZE: 224
+  BATCH_SIZE: 128
+TRAIN:
+  EPOCHS: 100
+  WARMUP_EPOCHS: 20
+  BASE_LR: 1.5e-3
+  WARMUP_LR: 2.5e-7
+  MIN_LR: 2.5e-7
+  WEIGHT_DECAY: 0.05
+  LAYER_DECAY: 0.6
+PRINT_FREQ: 100
+SAVE_FREQ: 5
+TAG: fd_finetune__dino_vit_base__img224__300ep

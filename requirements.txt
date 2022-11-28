@@ -1,0 +1,8 @@
+pyyaml
+scipy
+termcolor
+timm==0.4.12
+yacs
+wandb
+jsonlines
+einops==0.3.2
