@@ -1,0 +1,28 @@
+MODEL:
+  TYPE: vit
+  NAME: fd_finetune
+  DROP_PATH_RATE: 0.4
+  VIT:
+    EMBED_DIM: 1024
+    DEPTH: 24
+    NUM_HEADS: 16
+    USE_APE: False
+    USE_RPB: True
+    USE_SHARED_RPB: False
+    USE_MEAN_POOLING: True
+    WITH_CLS_TOKEN: True
+    PATCH_SIZE: 14
+DATA:
+  IMG_SIZE: 224
+  BATCH_SIZE: 128
+TRAIN:
+  EPOCHS: 50
+  WARMUP_EPOCHS: 5
+  BASE_LR: 2.5e-4
+  WARMUP_LR: 5.0e-7
+  MIN_LR: 5.0e-7
+  WEIGHT_DECAY: 0.05
+  LAYER_DECAY: 0.75
+PRINT_FREQ: 100
+SAVE_FREQ: 5
+TAG: fd_finetune__clip_vit_large__img224__300ep

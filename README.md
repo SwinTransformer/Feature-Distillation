@@ -5,6 +5,10 @@ By [Yixuan Wei](https://scholar.google.com/citations?user=xwudKb4AAAAJ&hl=en)\*,
 This repo is the official implementation of ["Contrastive Learning Rivals Masked Image Modeling in Fine-tuning via Feature Distillation"](https://arxiv.org/abs/2205.14141).
 
 ## Updates
+***11/30/2022***
+
+1. Distilled and fine-tuned models on ImageNet-1K (`ViT Large`) are provided.
+
 ***11/28/2022***
 
 Initial commits:
@@ -39,6 +43,7 @@ Initial commits:
 | ViT-Base | 300 | [CLIP-Base](https://github.com/openai/CLIP) | 224x224 | 84.9 | [google](https://drive.google.com/file/d/1XFOZ6rJkv5X08Bu5d04_Xy3iJOj6SLc7/view?usp=sharing)/[config](configs/pretrain/fd_pretrain__clip_vit_base__img224__300ep.yaml) | [google](https://drive.google.com/file/d/1mP_JESmcdFeIkpB4aYyFzALtkydy_9qN/view?usp=sharing)/[config](configs/finetune/fd_finetune__clip_vit_base__img224__300ep.yaml) |
 | ViT-Base | 300 | [DINO-Base](https://github.com/facebookresearch/dino) | 224x224 | 83.8 | [google](https://drive.google.com/file/d/1fwBINMxpv5zFOI7Ye6l9msI8GzocpA3z/view?usp=sharing)/[config](configs/pretrain/fd_pretrain__dino_vit_base__img224__300ep.yaml) | [google](https://drive.google.com/file/d/1Mn_GgepfZXOe7W0UqEQMFo5MjJpMwM_i/view?usp=sharing)/[config](configs/finetune/fd_finetune__dino_vit_base__img224__300ep.yaml) |
 | ViT-Base | 300 | [DeiT-Base](https://github.com/facebookresearch/deit) | 224x224 | 83.0 | [google](https://drive.google.com/file/d/1yPezioDc4O6hdfD6VSAIU9DvJiXG4ZSJ/view?usp=sharing)/[config](configs/pretrain/fd_pretrain__deit_vit_base__img224__300ep.yaml) | [google](https://drive.google.com/file/d/1pb0KUlVcCaEGT-xnx6ookrqcC-88Ori5/view?usp=sharing)/[config](configs/finetune/fd_finetune__deit_vit_base__img224__300ep.yaml) |
+| ViT-Large | 300 | [CLIP-Large](https://github.com/openai/CLIP) | 224x224 | 87.7 | [google](https://drive.google.com/file/d/1H5USyzqwoS31JHDX874q8a70LdVD9zNY/view?usp=sharing)/[config](configs/pretrain/fd_pretrain__clip_vit_large__img224__300ep.yaml) | [google](https://drive.google.com/file/d/1XDDbDl9jzt8H2Fy6iZNfNA7Yjepf_MGx/view?usp=sharing)/[config](configs/finetune/fd_finetune__clip_vit_large__img224__300ep.yaml) |
 
 ## Citation
 
